@@ -1,8 +1,9 @@
 import { BlitzLayout } from "@blitzjs/next"
 import Head from "next/head"
 import React from "react"
+import SetTreeSidebar from "../components/SetTreeSidebar"
 
-const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
+const SideBySide: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
   title,
   children,
 }) => {
@@ -13,9 +14,12 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {children}
+      <div>
+        <SetTreeSidebar />
+        {children}
+      </div>
     </>
   )
 }
 
-export default Layout
+export default SideBySide

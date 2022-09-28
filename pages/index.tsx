@@ -1,10 +1,9 @@
+import { useRedirectAuthenticated } from "@blitzjs/auth"
 import { BlitzPage } from "@blitzjs/next"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Layout from "app/core/layouts/Layout"
 import Button from "app/core/components/Button"
-import { useCurrentUser } from "app/core/hooks/useCurrentUser"
-import { useRedirectAuthenticated } from "@blitzjs/auth"
+import Layout from "app/core/layouts/Layout"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -12,13 +11,11 @@ import { useRedirectAuthenticated } from "@blitzjs/auth"
  */
 
 const Home: BlitzPage = () => {
-  const user = useCurrentUser()
   useRedirectAuthenticated("/app")
 
   return (
     <Layout title="Home">
       <div className="p-5 mx-auto">
-        {JSON.stringify(user)}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo.png" alt="Alumno Logo" className="w-12 mb-4 select-none" />
         <h1 className="mb-2 font-bold text-lg">Hi, Alumno!</h1>
