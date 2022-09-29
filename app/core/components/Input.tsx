@@ -18,7 +18,7 @@ const Input: React.FC<React.PropsWithChildren<InputProps>> = ({
       <input
         className={cn(
           "px-3 py-2.5 w-full rounded-lg border border-slate-6 focus:outline-none focus:border-blue-6 focus:ring focus:ring-blue-4 leading-none placeholder:text-slate-8",
-          { "pl-10": !!leftIcon },
+          { "pl-9": !!leftIcon },
           className
         )}
         {...props}

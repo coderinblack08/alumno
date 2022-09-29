@@ -7,7 +7,6 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { IconLayoutSidebarLeftCollapse } from "@tabler/icons"
 import React from "react"
 import Button from "./Button"
 import Input from "./Input"
@@ -30,25 +29,28 @@ const SetTreeSidebar: React.FC<SetTreeSidebarProps> = () => {
       </div>
       <div className="space-y-1">
         <Button
-          leftIcon={<FontAwesomeIcon icon={faCaretDown} fontSize="16px" fixedWidth />}
+          as="div"
+          role="button"
+          tabIndex={0}
+          leftIcon={
+            <button
+              onClick={(e) => e.stopPropagation()}
+              className="focus:ring focus:outline-none rounded focus:ring-blue-4"
+              suppressHydrationWarning
+            >
+              <FontAwesomeIcon icon={faCaretRight} fontSize="16px" className="w-[16px]" />
+            </button>
+          }
           className="w-full"
-          variant="solid"
+          variant="ghost"
           size="sm"
         >
           Notebook #1
         </Button>
-        <Button
-          leftIcon={<FontAwesomeIcon icon={faCaretRight} fontSize="16px" fixedWidth />}
-          className="w-full pl-6"
-          variant="ghost"
-          size="sm"
-        >
-          Notebook #2
-        </Button>
         <Modal
           trigger={
             <Button
-              leftIcon={<FontAwesomeIcon icon={faPlus} fontSize="16px" fixedWidth />}
+              leftIcon={<FontAwesomeIcon icon={faPlus} fontSize="16px" className="w-[16px]" />}
               variant="ghost"
               className="w-full"
               size="sm"
@@ -58,7 +60,7 @@ const SetTreeSidebar: React.FC<SetTreeSidebarProps> = () => {
           }
         ></Modal>
         <Button
-          leftIcon={<FontAwesomeIcon icon={faPalette} fontSize="16px" fixedWidth />}
+          leftIcon={<FontAwesomeIcon icon={faPalette} fontSize="16px" className="w-[16px]" />}
           variant="ghost"
           className="w-full"
           size="sm"
@@ -66,7 +68,7 @@ const SetTreeSidebar: React.FC<SetTreeSidebarProps> = () => {
           Customize Theme
         </Button>
         <Button
-          leftIcon={<FontAwesomeIcon icon={faKeyboard} fontSize="16px" fixedWidth />}
+          leftIcon={<FontAwesomeIcon icon={faKeyboard} fontSize="16px" className="w-[16px]" />}
           variant="ghost"
           className="w-full"
           size="sm"

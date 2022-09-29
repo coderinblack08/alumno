@@ -1,5 +1,12 @@
 import React from "react"
+import type * as Polymorphic from "@radix-ui/react-polymorphic"
 import cn from "classnames"
+
+type PolymorphicBox = Polymorphic.ForwardRefComponent<"div", {}>
+
+const Box = React.forwardRef(({ as: Comp = "div", ...props }, forwardedRef) => (
+  <Comp {...props} ref={forwardedRef} />
+)) as PolymorphicBox
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "solid" | "outline" | "ghost"
@@ -8,6 +15,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rightIcon?: React.ReactNode
   size?: "sm" | "md" | "lg"
   leftBorder?: boolean
+  as?: React.ElementType
 }
 
 type NonNullable<T> = Exclude<T, null | undefined>
@@ -21,6 +29,7 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   children,
   leftBorder,
   size = "md",
+  as = "button",
   ...props
 }) => {
   const variantToClasses: Record<
@@ -39,13 +48,14 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   const vc = `${variant}-${colorScheme}`
 
   return (
-    <button
+    <Box
+      as={as}
       className={cn(
         "transition flex items-stretch font-bold rounded-md leading-none select-none focus:outline-none focus:ring focus:ring-blue-4",
         variantToClasses[vc],
         className
       )}
-      {...props}
+      {...(props as any)}
     >
       <div
         className={cn("flex items-center justify-center", {
@@ -76,7 +86,7 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
           {rightIcon}
         </div>
       )}
-    </button>
+    </Box>
   )
 }
 
