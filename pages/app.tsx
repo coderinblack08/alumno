@@ -1,5 +1,6 @@
 import { BlitzPage } from "@blitzjs/next"
 import { IconChevronDown, IconChevronLeft, IconChevronRight } from "@tabler/icons"
+import Card from "../app/cards/components/Card"
 import Button from "../app/core/components/Button"
 import SideBySide from "../app/core/layouts/SideBySide"
 
@@ -9,7 +10,7 @@ const App: BlitzPage = () => {
       <main className="mx-auto max-w-3xl w-full px-5">
         <div className="py-[4.5rem] border-b border-slate-6">
           <h1 className="text-xl font-bold">Getting Started With Alumno</h1>
-          <div className="flex items-center gap-3 text-slate-10 mt-2">
+          <div className="flex items-center gap-4 text-slate-10 mt-2">
             <a className="ring-gray" href="#">
               Mastered <span className="underline decoration-slate-6">8/10</span>
             </a>{" "}
@@ -45,15 +46,9 @@ const App: BlitzPage = () => {
               New Card
             </Button>
           </div>
-          <article className="w-full relative flex items-center justify-center text-slate-11 text-lg border border-slate-6 rounded-lg p-5 h-56">
-            <div className="absolute inset-x-2 top-2 flex items-center justify-between select-none">
-              <span className="bg-slate-3 text-slate-9 rounded-lg py-0.5 px-2.5 text-sm font-bold">
-                TERM
-              </span>
-              <span className="text-sm text-slate-9">Click To Flipover</span>
-            </div>
-            The formula used to derive the value of x in quadratics
-          </article>
+
+          <Card />
+
           <div className="flex items-center justify-center gap-2 mt-5">
             <button className="border border-slate-6 rounded-lg p-0.5">
               <IconChevronLeft className="w-4 h-4 text-slate-8" />

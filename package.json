@@ -45,6 +45,7 @@
     "passport-github2": "0.1.12",
     "prisma": "4.0.0",
     "react": "18.2.0",
+    "react-card-flip": "1.1.5",
     "react-dom": "18.2.0",
     "zod": "3.17.3"
   },
