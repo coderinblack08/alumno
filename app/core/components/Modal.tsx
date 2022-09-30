@@ -7,7 +7,7 @@ interface Props {
   trigger: React.ReactNode
 }
 
-const Dialog = ({ trigger }: Props) => {
+const Dialog = ({ children, trigger }: React.PropsWithChildren<Props>) => {
   let [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -43,13 +43,7 @@ const Dialog = ({ trigger }: Props) => {
               "bg-white"
             )}
           >
-            <DialogPrimitive.Title className="font-bold text-slate-12">
-              Edit profile
-            </DialogPrimitive.Title>
-            <DialogPrimitive.Description className="mt-0.5 text-sm font-normal text-slate-11">
-              Make changes to your profile here. Click save when you&apos;re done.
-            </DialogPrimitive.Description>
-
+            {children}
             <DialogPrimitive.Close
               className={cx(
                 "absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1",

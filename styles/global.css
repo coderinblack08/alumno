@@ -6,4 +6,8 @@
   :root {
     @apply antialiased font-medium text-[14px] text-slate-12;
   }
+
+  .ring-gray {
+    @apply focus:ring-2 focus:ring-slate-6 transition focus:ring-offset-2;
+  }
 }

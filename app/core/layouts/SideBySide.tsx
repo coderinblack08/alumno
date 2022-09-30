@@ -14,7 +14,7 @@ const SideBySide: BlitzLayout<{ title?: string; children?: React.ReactNode }> = 
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
+      <div className="flex">
         <SetTreeSidebar />
         {children}
       </div>

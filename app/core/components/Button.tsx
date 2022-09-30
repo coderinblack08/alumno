@@ -37,11 +37,11 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
     string
   > = {
     // @ts-ignore
-    "solid-blue": "bg-blue-3 text-white",
+    "solid-blue": "bg-blue-8 text-white",
     "outline-blue": "bg-white text-blue-11",
     "ghost-blue": "bg-white text-blue-11",
-    "solid-gray": "bg-slate-3 text-slate-10",
-    "outline-gray": "bg-white border border-slate-6 focus:border-blue-6",
+    "solid-gray": "bg-slate-4 text-slate-11",
+    "outline-gray": "border bg-white border-slate-6 text-slate-11",
     "ghost-gray": "bg-white font-semibold text-slate-9",
   }
 
@@ -51,7 +51,7 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
     <Box
       as={as}
       className={cn(
-        "transition flex items-stretch font-bold rounded-md leading-none select-none focus:outline-none focus:ring focus:ring-blue-4",
+        "transition flex items-stretch font-bold rounded-md leading-none select-none focus:outline-none focus:ring focus:ring-blue-4 focus:border-blue-6",
         variantToClasses[vc],
         className
       )}
@@ -78,9 +78,10 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
 
       {rightIcon && (
         <div
-          className={cn("flex items-center justify-center px-2 rounded-md border-2", {
-            "border-white bg-slate-3": vc === "outline-gray",
-            "border-slate-3 bg-slate-5": vc === "solid-gray",
+          className={cn("flex items-center justify-center px-1 rounded-r-md", {
+            "bg-slate-3": vc === "outline-gray",
+            "bg-slate-6": vc === "solid-gray",
+            "bg-[#409FE9]": vc === "solid-blue",
           })}
         >
           {rightIcon}
