@@ -40,6 +40,7 @@
     "blitz": "2.0.0-beta.4",
     "classnames": "2.3.2",
     "formik": "2.2.9",
+    "lexorank": "1.0.5",
     "next": "12.2.5",
     "passport-github": "1.1.0",
     "passport-github2": "0.1.12",

@@ -8,6 +8,8 @@ const UpdateCard = z.object({
   term: z.string().optional(),
   definition: z.string().optional(),
   setId: z.number().optional(),
+  parentId: z.number().optional(),
+  rank: z.string().optional(),
 })
 
 export default resolver.pipe(
