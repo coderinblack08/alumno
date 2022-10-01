@@ -8,6 +8,6 @@
   }
 
   .ring-gray {
-    @apply focus:ring-2 focus:ring-slate-6 transition focus:ring-offset-2;
+    @apply focus:ring-2 focus:ring-slate-6 transition focus:ring-offset-2 focus:outline-none;
   }
 }

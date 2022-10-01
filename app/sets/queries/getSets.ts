@@ -1,13 +1,15 @@
-import { paginate } from "blitz";
-import { resolver } from "@blitzjs/rpc";
-import db, { Prisma } from "db";
+import { paginate } from "blitz"
+import { resolver } from "@blitzjs/rpc"
+import db, { Prisma } from "db"
 
 interface GetSetsInput
   extends Pick<Prisma.SetFindManyArgs, "where" | "orderBy" | "skip" | "take"> {}
 
 export default resolver.pipe(
   resolver.authorize(),
-  async ({ where, orderBy, skip = 0, take = 100 }: GetSetsInput) => {
+  async ({ where, orderBy, skip = 0, take = 100 }: GetSetsInput, ctx) => {
+    where ??= {}
+    where.userId ??= ctx.session.userId
     // TODO: in multi-tenant app, you must add validation to ensure correct tenant
     const {
       items: sets,
@@ -18,15 +20,14 @@ export default resolver.pipe(
       skip,
       take,
       count: () => db.set.count({ where }),
-      query: (paginateArgs) =>
-        db.set.findMany({ ...paginateArgs, where, orderBy }),
-    });
+      query: (paginateArgs) => db.set.findMany({ ...paginateArgs, where, orderBy }),
+    })
 
     return {
       sets,
       nextPage,
       hasMore,
       count,
-    };
+    }
   }
-);
+)

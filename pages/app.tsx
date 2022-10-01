@@ -1,6 +1,6 @@
 import { BlitzPage } from "@blitzjs/next"
 import { IconChevronDown, IconChevronLeft, IconChevronRight } from "@tabler/icons"
-import Card from "../app/cards/components/Card"
+import FullCard from "../app/cards/components/FullCard"
 import Button from "../app/core/components/Button"
 import SideBySide from "../app/core/layouts/SideBySide"
 
@@ -47,14 +47,14 @@ const App: BlitzPage = () => {
             </Button>
           </div>
 
-          <Card />
+          <FullCard />
 
           <div className="flex items-center justify-center gap-2 mt-5">
-            <button className="border border-slate-6 rounded-lg p-0.5">
+            <button className="border border-slate-6 rounded-lg p-0.5 ring-gray">
               <IconChevronLeft className="w-4 h-4 text-slate-8" />
             </button>
-            <span className="text-slate-10 font-bold text-sm">1 / 10</span>
-            <button className="border border-slate-6 rounded-lg p-0.5">
+            <span className="text-slate-10 font-bold text-sm select-none">1 / 10</span>
+            <button className="border border-slate-6 rounded-lg p-0.5 ring-gray">
               <IconChevronRight className="w-4 h-4 text-slate-8" />
             </button>
           </div>
