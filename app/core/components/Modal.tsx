@@ -5,10 +5,17 @@ import React, { Fragment, useState } from "react"
 
 interface Props {
   trigger: React.ReactNode
+  setIsOpen?: (isOpen: boolean) => void
+  isOpen?: boolean
 }
 
-const Dialog = ({ children, trigger }: React.PropsWithChildren<Props>) => {
-  let [isOpen, setIsOpen] = useState(false)
+const Dialog = ({ children, isOpen, setIsOpen, trigger }: React.PropsWithChildren<Props>) => {
+  let [isInternalOpen, setIsInternalOpen] = useState(false)
+
+  if (!isOpen && !setIsOpen) {
+    isOpen ??= isInternalOpen
+    setIsOpen ??= setIsInternalOpen
+  }
 
   return (
     <DialogPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>

@@ -1,14 +1,14 @@
 import { useQuery } from "@blitzjs/rpc"
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Button from "./Button"
+import Button from "../Button"
 
 import React from "react"
-import getSets from "../../sets/queries/getSets"
+import getSets from "../../../sets/queries/getSets"
 
-interface SetTreeProps {}
+interface DraggableSetTreeProps {}
 
-const SetTree: React.FC<SetTreeProps> = () => {
+const DraggableSetTree: React.FC<DraggableSetTreeProps> = () => {
   const [data] = useQuery(getSets, {}, { suspense: false })
 
   return (
@@ -39,4 +39,4 @@ const SetTree: React.FC<SetTreeProps> = () => {
   )
 }
 
-export default SetTree
+export default DraggableSetTree

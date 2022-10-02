@@ -51,7 +51,7 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
     <Box
       as={as}
       className={cn(
-        "transition flex justify-center items-stretch font-bold rounded-md leading-none select-none focus:outline-none focus:ring focus:ring-blue-4 focus:border-blue-6",
+        "transition flex justify-center items-stretch font-bold rounded-md leading-none select-none focus:outline-none focus:ring focus:ring-blue-4 focus:border-blue-6 disabled:opacity-25",
         variantToClasses[vc],
         className
       )}
